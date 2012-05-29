@@ -1,0 +1,34 @@
+
+  I. About
+
+    This repository provides example content for puppet-boilerplate-modules [1].
+    It should give you an impression of what to expect from and how to use
+    puppet-boilerplate-modules and if the project might be useful for you.
+
+    [1] <https://github.com/bitkollektiv/puppet-boilerplate-modules>
+
+
+
+  II. Usage
+
+    There are different "example-module-[name]" directories. Each folder
+    contains:
+
+    1. An example module which was created with the help of
+       puppet-boilerplate-modules.
+
+    2. A doc directory which contains the output of "puppet doc --mode rdoc".
+
+    3. A README file which explains what was necessary to create the example
+       content.
+
+
+
+  III. Other notes
+
+    If you like this free project, you might buy us a coffee [1], or get some
+    cool QR Code merchandise [2]. Thank you! :-)
+
+    [1] <http://bitkollektiv.org/donate/puppet-modules-example-content/>
+    [2] <http://goqr.me/>
+
