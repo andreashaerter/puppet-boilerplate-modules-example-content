@@ -59,21 +59,23 @@
 
     4. The new FileZilla module was now located in "~/filezilla". I started to
        edit the created files to get a working module. Most work was already
-       done by the "new module wizard" (newmodule.sh). I just  followed the
-       wizard advice (cf. "3. f)"):
-       - "~/filezilla/README":
-         Added some general notes and links.
+       done by the "new module wizard" (newmodule.sh). I just followed the
+       wizard's advice where to start:
        - "~/filezilla/manifests/init.pp":
          Removed the FIXME/TODO line in the RDoc block at the top of the file.
        - "~/filezilla/manifests/params.pp":
          Replaced FIXME/TODO with the package names.
+       - "~/filezilla/README":
+         Added some general notes and links.
        That's all, the module is finished. Really simple and small edits. It
        took ~ten minutes to create the whole, well documented module. 95% of the
-       time was spent to write the module's README. I now ran puppet-lint [1]
-       to make sure everything follows the official style guide. [2]
+       time was spent to write the module's README. Optional but recommended:
+       I ran lint.sh [1] (a wrapper around puppet-lint [2]) to make sure
+       everything follows the official Puppet Labs style guide [3].
 
-       [1] <https://github.com/rodjek/puppet-lint>
-       [2] <http://docs.puppetlabs.com/guides/style_guide.html>
+       [1] <https://github.com/bitkollektiv/puppet-tools/blob/master/lint.sh>
+       [2] <https://github.com/rodjek/puppet-lint>
+       [3] <http://docs.puppetlabs.com/guides/style_guide.html>
 
 
     5. Rendered the HTML documentation with the following command:
@@ -85,10 +87,10 @@
     6. Time for a test. I created everything in a fresh VM, so I first made sure
        Puppet is able to run:
          $ su -
-         $ su mkdir /etc/puppet/modules
-         $ su touch site.pp
+         $ mkdir /etc/puppet/modules
+         $ touch site.pp
          $ puppet module install puppetlabs-stdlib
-       I now copied the module into the modulepath [1] and tested it with the
+       I copied the module into the modulepath [1] and tested it with the
        following commands:
          $ su -
          $ mkdir /etc/puppet/modules/filezilla
@@ -97,5 +99,5 @@
          $ puppet apply -e "class { 'filezilla': ensure => 'absent'}"
        FileZilla was installed and removed as expected. :-)
 
-       [1] <http://docs.puppetlabs.com/references/latest/configuration.html#modulepath>
+       [1] <http://j.mp/JLMlb0>
 

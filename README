@@ -11,12 +11,14 @@
 
   II. Usage
 
-    There are different "example-module-[name]" directories. Just have a look
-    at them. Each folder contains:
+    This repository provides example modules created with the help of the
+    different available boilerplates. You can see which boilerplate was used
+    to create the module by looking at the directory name (schema:
+    "used-boilerplate_modulename"). Each folder contains:
 
-    1. An example module which was created with the help of
-       puppet-boilerplate-modules. This should give you an impression of the
-       Puppet source quality and how the created modules will look like.
+    1. The example module. This should give you an impression of the Puppet
+       source code quality and how the modules created with the respective
+       boilerplate will look like.
 
     2. A "doc" directory which contains the output of "puppet doc --mode rdoc".
        Please note that you can't browse the rendered documentation on GitHub
