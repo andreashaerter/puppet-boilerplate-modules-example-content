@@ -23,12 +23,18 @@
     3. Answered the questions:
 
        a) Boilerplate to use:
-            application-001 (corresponding number should be "0").
+            application-003 (corresponding number should be "2").
             FileZilla packages can be found in nearly every Linux repository and
             the software normally does not need further configuration. This is
-            why the "application-001" boilerplate was chosen. It is simple and
-            suit the needs for Puppet modules which mostly manage basic package
-            install or removal operations.
+            why the "application-001" boilerplate would also be a good
+            boilerplate to use (is it clean and simple). However, I chose
+            "application-003" because it provides:
+            - Many inline comments. Perfect to understand the module structure
+              and helpful for Puppet newbies.
+            - Parameters for extensive customization without the need for touch
+              the module (-> "package", "autoload_class")
+            - Included debug functionality (-> "debug" parameter).
+            Cool features I want to demonstrate.
 
        b) Name for the new module:
             filezilla
@@ -45,9 +51,11 @@
        f) The new module wizard now created the module. It also gave me a hint:
            "Start to edit the following files (-> positions marked with
             'FIXME/TODO') for customization:
-             - /home/user/filezilla/manifests/init.pp
-             - /home/user/filezilla/manifests/params.pp
-             - /home/user/filezilla/README"
+            - /home/user/filezilla/manifests/config.pp
+            - /home/user/filezilla/manifests/init.pp
+            - /home/user/filezilla/manifests/params.pp
+            - /home/user/filezilla/manifests/repo.pp
+            - /home/user/filezilla/README"
           It says so because all available boilerplates mark the lines you must
           edit/check in every case after you generated a module with FIXME/TODO.
           The wizard scans for these lines and informs you about the files you
@@ -62,23 +70,41 @@
        edit the created files to get a working module. Most work was already
        done by the "new module wizard" (newmodule.sh). I just followed the
        wizard's advice where to start:
+       - "~/filezilla/manifests/config.pp":
+         I don't need configuration actions for FileZilla. Therefore this file
+         is not needed and I deleted it. Everything you need to know is
+         explained in a comment [1] at the top of the file.
+       - "~/filezilla/manifests/repo.pp":
+         I don't need to setup a repository for FileZilla because there should
+         be packages in all default repositories. Therefore this file is not
+         needed and I deleted it. Everything you need to know is
+         explained in a comment [2] at the top of the file.
        - "~/filezilla/manifests/init.pp":
-         Removed the FIXME/TODO line in the docblock at the top of the file [1].
+         Removed the:
+         - FIXME/TODO line in the RDoc block at the top of the file [3]
+         - calls of the deleted classes (repo.pp [4], config.pp [5])
+         - all relationships [6] because they are not needed after the removal
+           of repo.pp and config.pp.
        - "~/filezilla/manifests/params.pp":
-         Replaced FIXME/TODO with the package names [2].
+         Replaced FIXME/TODO with the package names [7].
        - "~/filezilla/README":
          Added some general notes and links.
        That's all, the module is finished. Really simple and small edits. It
        took ~ten minutes to create the whole, well documented module. 95% of the
        time was spent to write the module's README. Optional but recommended:
-       I ran lint.sh [3] (a wrapper around puppet-lint [4]) to make sure
-       everything follows the official Puppet Labs style guide [5].
+       I ran lint.sh [8] (a wrapper around puppet-lint [9]) to make sure
+       everything follows the official Puppet Labs style guide [10].
 
-       [1] <http://j.mp/LU1e8Q>
-       [2] <http://j.mp/M8jmPj>
-       [3] <https://github.com/bitkollektiv/puppet-tools/blob/master/lint.sh>
-       [4] <https://github.com/rodjek/puppet-lint>
-       [5] <http://docs.puppetlabs.com/guides/style_guide.html>
+       [1]  <http://j.mp/LJj7rD>
+       [2]  <http://j.mp/KX1SOJ>
+       [3]  <http://j.mp/JAtSgh>
+       [4]  <http://j.mp/Kd99R9>
+       [5]  <http://j.mp/JAua6M>
+       [6]  <http://j.mp/KIyej7>
+       [7]  <http://j.mp/JVKkm7>
+       [8]  <https://github.com/bitkollektiv/puppet-tools/blob/master/lint.sh>
+       [9]  <https://github.com/rodjek/puppet-lint>
+       [10] <http://docs.puppetlabs.com/guides/style_guide.html>
 
 
     5. Rendered the HTML documentation with the following command:
