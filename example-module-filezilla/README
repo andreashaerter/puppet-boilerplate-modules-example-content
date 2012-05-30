@@ -1,0 +1,101 @@
+
+  I. About
+  
+    This file contains a protocol about how the "filezilla" module was created
+    (you can find it in the correspond directory). Therefore, this text may be
+    useful to learn how to use the puppet-boilerplate-modules [1] project.
+
+    [1] <https://github.com/bitkollektiv/puppet-boilerplate-modules>
+
+
+
+  II. Creation transcript
+  
+    1. Cloned the puppet-boilerplate-modules repository:
+       $ git clone git://github.com/bitkollektiv/puppet-boilerplate-modules.git
+
+
+    2. Called the wizard to create the module skeleton for a new module:
+       $ ./puppet-boilerplate-modules/newmodule.sh
+
+    
+    3. Answered the questions:
+
+       a) Boilerplate to use:
+            application-001 (corresponding number should be "0").
+            FileZilla packages can be found in nearly every Linux repository and
+            the software normally does not need further configuration. This is
+            why the "application-001" boilerplate was chosen. It is simple and
+            suit the needs for Puppet modules which mostly manage basic package
+            install or removal operations.
+
+       b) Name for the new module:
+            filezilla
+
+       c) Target directory:
+            Just pressed ENTER to select the home directory.
+
+       d) Full Name:
+            Andreas Haerter
+
+       e) Email address:
+            ah@bitkollektiv.org
+
+       f) The new module wizard now created the module. It also gave me a hint:
+           "Start to edit the following files (-> positions marked with
+            'FIXME/TODO') for customization:
+             - /home/user/filezilla/manifests/init.pp
+             - /home/user/filezilla/manifests/params.pp
+             - /home/user/filezilla/README"
+          It says so because all available boilerplates mark the lines you must
+          edit/check in every case after you generated a module with FIXME/TODO.
+          The wizard scans for these lines and informs you about the files you
+          may want to start editing.
+
+       g) Start repository wizard?
+           No. I exited the program. This is only useful if I would want to
+           create a new Git repository on GitHub or Bitbucket for the module.
+
+
+    4. The new FileZilla module was now located in "~/filezilla". I started to
+       edit the created files to get a working module. Most work was already
+       done by the "new module wizard" (newmodule.sh). I just  followed the
+       wizard advice (cf. "3. f)"):
+       - "~/filezilla/README":
+         Added some general notes and links.
+       - "~/filezilla/manifests/init.pp":
+         Removed the FIXME/TODO line in the RDoc block at the top of the file.
+       - "~/filezilla/manifests/params.pp":
+         Replaced FIXME/TODO with the package names.
+       That's all, the module is finished. Really simple and small edits. It
+       took ~ten minutes to create the whole, well documented module. 95% of the
+       time was spent to write the module's README. I now ran puppet-lint [1]
+       to make sure everything follows the official style guide. [2]
+
+       [1] <https://github.com/rodjek/puppet-lint>
+       [2] <http://docs.puppetlabs.com/guides/style_guide.html>
+
+
+    5. Rendered the HTML documentation with the following command:
+         $ puppet doc --mode rdoc --modulepath ~ --outputdir ~/doc
+       Have a look in the "doc" directory to view its output. Just open the
+       "index.html" with your browser.
+
+
+    6. Time for a test. I created everything in a fresh VM, so I first made sure
+       Puppet is able to run:
+         $ su -
+         $ su mkdir /etc/puppet/modules
+         $ su touch site.pp
+         $ puppet module install puppetlabs-stdlib
+       I now copied the module into the modulepath [1] and tested it with the
+       following commands:
+         $ su -
+         $ mkdir /etc/puppet/modules/filezilla
+         $ cp -R /home/user/filezilla/. /etc/puppet/modules/filezilla/.
+         $ puppet apply -e "class { 'filezilla': }"
+         $ puppet apply -e "class { 'filezilla': ensure => 'absent'}"
+       FileZilla was installed and removed as expected. :-)
+
+       [1] <http://docs.puppetlabs.com/references/latest/configuration.html#modulepath>
+

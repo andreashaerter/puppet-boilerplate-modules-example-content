@@ -11,16 +11,21 @@
 
   II. Usage
 
-    There are different "example-module-[name]" directories. Each folder
-    contains:
+    There are different "example-module-[name]" directories. Just have a look
+    at them. Each folder contains:
 
     1. An example module which was created with the help of
-       puppet-boilerplate-modules.
+       puppet-boilerplate-modules. This should give you an impression of the
+       Puppet source quality and how the created modules will look like.
 
-    2. A doc directory which contains the output of "puppet doc --mode rdoc".
+    2. A "doc" directory which contains the output of "puppet doc --mode rdoc".
+       Please note that you can't browse the rendered documentation on GitHub
+       (because it just shows you the source). But you may clone this repository
+       and open the "index.html" of the documentation you want to look at.
 
     3. A README file which explains what was necessary to create the example
-       content.
+       content. The creation transcripts should be useful to learn how to use
+       the puppet-boilerplate-modules project.
 
 
 

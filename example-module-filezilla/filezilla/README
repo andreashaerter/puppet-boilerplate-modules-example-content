@@ -1,0 +1,56 @@
+== module: filezilla
+
+Manages FileZilla, a feature-rich, cross-platform Open Source file transfer
+client. It comes with support for FTP, SSH File Transfer Protocol (SFTP) and
+FTP over SSL/TLS (FTPS).
+
+This module does not manage FileZilla _server_ (which is a FTP server for
+windows by the same developers).
+
+Have a look at the main module class (<tt>init.pp</tt>) to see what this
+module does on a node plus usage examples.
+
+==== Security note
+
+Like many other applications, <b>FileZilla stores all handled login data and
+credentials as plain text files</b>. Have a look at the following directory:
+* <tt>~/.filezilla/</tt> on Unix-like systems.
+* <tt>%AppData%\FileZilla\\</tt> on MS Windows (<tt>%AppData%</tt> is a Windows
+  environment variable, pointing to the current application data dir of your
+  account. Try to access <tt>%AppData%\FileZilla\\</tt> directly via Windows
+  Explorer and you'll see how it works).
+You will find <tt>recentservers.xml</tt> and <tt>sitemanager.xml</tt> there
+after using the program to log into a system. This is expected behavior because
+it is your operating system's responsibility too keep these files save. But
+keep it in mind if you are using a non-encrypted and/or multi-user systems.
+
+
+=== Compatibility
+
+This module is designed to work with Puppet version 2.7.x or newer.
+
+
+=== Requirements
+
+This module has got the following module dependencies:
+
+[*stdlib*]
+  Version 2.3.1 or newer. Standard library of useful resources by Puppet Labs.
+  It contains functions like <tt>validate_*()</tt>, <tt>is_*()</tt> and
+  <tt>empty()</tt>. More information:
+  * {stdlib at Puppet Forge}[http://forge.puppetlabs.com/puppetlabs/stdlib]
+  * The {module source code}[http://j.mp/w00GZr] to get a listing of available
+    functions.
+
+
+=== Links
+
+* {Official FileZilla website}[http://filezilla-project.org/]
+* {Wikipedia: FileZilla}[http://en.wikipedia.org/wiki/FileZilla]
+* {ubuntuusers.de Wiki: FileZilla}[http://wiki.ubuntuusers.de/FileZilla] (German)
+
+
+=== License, Copyright
+
+See COPYING and NOTICE file in the root directory of this module.
+
