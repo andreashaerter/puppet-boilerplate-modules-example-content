@@ -1,0 +1,60 @@
+== module: avidemux
+
+Manages Avidemux, a free open source program designed for multi-purpose video
+editing and processing.
+
+Have a look at the main module class (<tt>init.pp</tt>) to see what this
+module does on a node plus usage examples.
+
+*Notice*::
+  Avidemux is open source software but some parts of it may use
+  patent-based technologies. These software patents may apply in your
+  country and therefore require proper licensing. It is _your_ legal
+  responsibility to make sure that the software you are installing can be
+  legally used in your country and for your intended purpose. More Information:
+  * http://www.avidemux.org/smf/index.php?topic=4679.0
+  * http://ffmpeg.org/legal.html
+  * http://www.avidemux.org/admWiki/doku.php?id=general:audio_encoders
+  * http://www.avidemux.org/admWiki/doku.php?id=general:audio_decoders
+  * http://www.avidemux.org/admWiki/doku.php?id=general:video_encoders
+  * http://www.avidemux.org/admWiki/doku.php?id=general:video_decoders
+  * {Wikipedia: Avidemux}[http://en.wikipedia.org/wiki/Avidemux]
+  This is not legal advice. Ask your lawyer if you need professional help.
+
+
+=== Compatibility
+
+This module is designed to work with Puppet version 2.7.x or newer.
+
+
+=== Requirements
+
+This module has got the following module dependencies:
+
+[*stdlib*]
+  Version 2.3.1 or newer. Standard library of useful resources by Puppet Labs.
+  It provides functions like <tt>validate_*()</tt>, <tt>is_*()</tt> and
+  <tt>empty()</tt>. More information:
+  * {stdlib at Puppet Forge}[http://forge.puppetlabs.com/puppetlabs/stdlib]
+  * The {module source code}[http://j.mp/w00GZr] to get a listing of available
+    functions.
+
+[*libyum*]
+  A recent version (the newer, the better). Library of YUM related resources.
+  More information:
+  * {libyum at Puppet Forge}[http://forge.puppetlabs.com/bitkollektiv/libyum]
+  * The {module source code}[http://j.mp/L3yZ7c]
+
+
+=== Links
+
+* {Official Avidemux website}[http://www.avidemux.org/]
+* {Official Avidemux wiki}[http://www.avidemux.org/admWiki/]
+* {Wikipedia: Avidemux}[http://en.wikipedia.org/wiki/Avidemux]
+* {ubuntuusers.de Wiki: Avidemux}[http://wiki.ubuntuusers.de/Avidemux] (German)
+
+
+=== License, Copyright
+
+See COPYING and NOTICE file in the root directory of this module.
+

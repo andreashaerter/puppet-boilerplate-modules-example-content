@@ -1,0 +1,137 @@
+
+  I. About
+  
+    This file contains a protocol about how the example module (-> "avidemux"
+    directory) and the corresponding documentation (-> "doc" directory) were
+    created. Therefore, this text may be useful to learn how to use the
+    puppet-boilerplate-modules [1] project.
+
+    Note: Avidemux is open source software but some parts of it may use
+    patent-based technologies. These software patents may apply in your
+    country and therefore require proper licensing. It is _your_ legal
+    responsibility to make sure that the software you are installing can be
+    legally used in your country and for your intended purpose. This is not
+    legal advice. Ask your lawyer if you need professional help.
+
+    [1] <https://github.com/bitkollektiv/puppet-boilerplate-modules>
+
+
+
+  II. Creation transcript
+
+    1. Cloned the puppet-boilerplate-modules repository:
+       $ git clone git://github.com/bitkollektiv/puppet-boilerplate-modules.git
+
+
+    2. Called the wizard to create the module skeleton for a new module:
+       $ ./puppet-boilerplate-modules/newmodule.sh
+
+
+    3. Answered the questions:
+
+       a) Boilerplate to use:
+            application-002 (corresponding number should be "1").
+            Avidemux is not available in many default repositories. Therefore we
+            need the handling of third party repositories. "application-002" and
+            "application-003" provide a separate manifest (repo.pp) for this,
+            both of them would be a good choice. However, "application-002" is
+            simpler and light weight.
+
+       b) Name for the new module:
+            avidemux
+
+       c) Target directory:
+            Just pressed ENTER to select the home directory.
+
+       d) Full Name:
+            Andreas Haerter
+
+       e) Email address:
+            ah@bitkollektiv.org
+
+       f) The new module wizard now created the module. It also gave me a hint:
+           "Start to edit the following files (-> positions marked with
+            'FIXME/TODO') for customization:
+            - /home/user/avidemux/manifests/config.pp
+            - /home/user/avidemux/manifests/init.pp
+            - /home/user/avidemux/manifests/params.pp
+            - /home/user/avidemux/manifests/repo.pp
+            - /home/user/avidemux/README"
+          It says so because all available boilerplates mark the lines you must
+          edit/check in every case after you generated a module with FIXME/TODO.
+          The wizard scans for these lines and informs you about the files you
+          may want to start editing.
+
+       g) Start repository wizard?
+           No. I exited the program. This is only useful if I would want to
+           create a new Git repository on GitHub or Bitbucket for the module.
+
+
+    4. The new Avidemux module was now located in "~/avidemux". I started to
+       edit the created files to get a working module. Most work was already
+       done by the "new module wizard" (newmodule.sh). I just followed the
+       wizard's advice where to start:
+       - "~/avidemux/manifests/config.pp":
+         I don't need configuration actions for Avidemux. Therefore this file
+         is not needed and I deleted it. Everything you need to know is
+         explained in a comment [1] at the top of the file.
+       - "~/avidemux/manifests/repo.pp":
+         I added some code to add the RPM Fusion repositories to get Avidemux
+         packages for Fedora. A $::operatingsystem switch would be useful if
+         this module should support more platforms.
+       - "~/avidemux/manifests/init.pp":
+         Removed the:
+         - FIXME/TODO line in the RDoc block at the top of the file [2]
+         - calls of the deleted class (config.pp [3])
+         - the class relationship [4] because it is not needed after the removal
+           of config.pp.
+       - "~/avidemux/manifests/params.pp":
+         Replaced FIXME/TODO with the package name [5].
+       - "~/avidemux/README":
+         Added some general notes and links.
+       - "~/avidemux/Modulefile"
+         Added the libyum dependency [6] (which is used to handle RPM Fusion).
+       That's all, the module is finished. Really simple and small edits. It
+       took ~15 minutes to create the whole, well documented module. 95% of the
+       time was spent to write the module's README. Optional but recommended:
+       I ran lint.sh [7] (a wrapper around puppet-lint [8]) to make sure
+       everything follows the official Puppet Labs style guide [9].
+
+       [1] <http://j.mp/Mocy01>
+       [2] <http://j.mp/JF8fGY>
+       [3] <http://j.mp/M16c0f>
+       [4] <http://j.mp/Na1EtX>
+       [5] <http://j.mp/LdeJMM>
+       [6] <http://j.mp/JMc8yI>
+       [7] <https://github.com/bitkollektiv/puppet-tools/blob/master/lint.sh>
+       [8] <https://github.com/rodjek/puppet-lint>
+       [9] <http://docs.puppetlabs.com/guides/style_guide.html>
+
+
+    5. Rendered the HTML documentation with the following command:
+         $ puppet doc --mode rdoc --modulepath ~ --outputdir ~/doc
+       Have a look in the "doc" directory to view its output. Just open the
+       "index.html" with your browser.
+
+
+    6. Time for a test. I created everything in a fresh VM, so I first made sure
+       Puppet is able to run:
+         $ su -
+         $ mkdir /etc/puppet/modules
+         $ touch /etc/puppet/site.pp
+         $ cd /etc/puppet/modules
+         $ puppet module install puppetlabs-stdlib
+         $ puppet module install bitkollektiv-libyum
+             or alternatively
+           git clone git://github.com/bitkollektiv/puppet-module-libyum.git libyum
+       I copied the module into the modulepath [1] and tested it with the
+       following commands:
+         $ su -
+         $ mkdir /etc/puppet/modules/avidemux
+         $ cp -R -v /home/user/avidemux/. /etc/puppet/modules/avidemux/.
+         $ puppet apply -e "class { 'avidemux': }"
+         $ puppet apply -e "class { 'avidemux': ensure => 'absent'}"
+       Avidemux was installed and removed as expected. :-)
+
+       [1] <http://j.mp/JLMlb0>
+

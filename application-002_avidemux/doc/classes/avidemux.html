@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: avidemux</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">avidemux</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/home/user/avidemux/manifests/params_pp.html">
+                /home/user/avidemux/manifests/params.pp
+                </a>
+        <br />
+                <a href="../files/home/user/avidemux/manifests/repo_pp.html">
+                /home/user/avidemux/manifests/repo.pp
+                </a>
+        <br />
+                <a href="../files/home/user/avidemux/manifests/package_pp.html">
+                /home/user/avidemux/manifests/package.pp
+                </a>
+        <br />
+                <a href="../files/home/user/avidemux/manifests/init_pp.html">
+                /home/user/avidemux/manifests/init.pp
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h2>module: <a href="avidemux.html">avidemux</a></h2>
+<p>
+Manages Avidemux, a free open source program designed for multi-purpose
+video editing and processing.
+</p>
+<p>
+Have a look at the main module class (<tt>init.pp</tt>) to see what this
+module does on a node plus usage examples.
+</p>
+<table>
+<tr><td valign="top"><b>Notice</b>:</td><td>Avidemux is open source software but some parts of it may use patent-based
+technologies. These software patents may apply in your country and
+therefore require proper licensing. It is <em>your</em> legal
+responsibility to make sure that the software you are installing can be
+legally used in your country and for your intended purpose. More
+Information:
+
+<ul>
+<li><a
+href="http://www.avidemux.org/smf/index.php?topic=4679.0">www.avidemux.org/smf/index.php?topic=4679.0</a>
+
+</li>
+<li><a href="http://ffmpeg.org/legal.html">ffmpeg.org/legal.html</a>
+
+</li>
+<li><a
+href="http://www.avidemux.org/admWiki/doku.php?id=general:audio_encoders">www.avidemux.org/admWiki/doku.php?id=general:audio_encoders</a>
+
+</li>
+<li><a
+href="http://www.avidemux.org/admWiki/doku.php?id=general:audio_decoders">www.avidemux.org/admWiki/doku.php?id=general:audio_decoders</a>
+
+</li>
+<li><a
+href="http://www.avidemux.org/admWiki/doku.php?id=general:video_encoders">www.avidemux.org/admWiki/doku.php?id=general:video_encoders</a>
+
+</li>
+<li><a
+href="http://www.avidemux.org/admWiki/doku.php?id=general:video_decoders">www.avidemux.org/admWiki/doku.php?id=general:video_decoders</a>
+
+</li>
+<li><a href="http://en.wikipedia.org/wiki/Avidemux">Wikipedia: Avidemux</a>
+
+</li>
+</ul>
+<p>
+This is not legal advice. Ask your lawyer if you need professional help.
+</p>
+</td></tr>
+</table>
+<h3>Compatibility</h3>
+<p>
+This module is designed to work with Puppet version 2.7.x or newer.
+</p>
+<h3>Requirements</h3>
+<p>
+This module has got the following module dependencies:
+</p>
+<dl>
+<dt><b>stdlib</b></dt><dd>Version 2.3.1 or newer. Standard library of useful resources by Puppet
+Labs. It provides functions like <tt>validate_*()</tt>, <tt>is_*()</tt> and
+<tt>empty()</tt>. More information:
+
+<ul>
+<li><a href="http://forge.puppetlabs.com/puppetlabs/stdlib">stdlib at Puppet
+Forge</a>
+
+</li>
+<li>The <a href="http://j.mp/w00GZr">module source code</a> to get a listing of
+available functions.
+
+</li>
+</ul>
+</dd>
+<dt><b>libyum</b></dt><dd>A recent version (the newer, the better). Library of YUM related resources.
+More information:
+
+<ul>
+<li><a href="http://forge.puppetlabs.com/bitkollektiv/libyum">libyum at Puppet
+Forge</a>
+
+</li>
+<li>The <a href="http://j.mp/L3yZ7c">module source code</a>
+
+</li>
+</ul>
+</dd>
+</dl>
+<h3>Links</h3>
+<ul>
+<li><a href="http://www.avidemux.org/">Official Avidemux website</a>
+
+</li>
+<li><a href="http://www.avidemux.org/admWiki/">Official Avidemux wiki</a>
+
+</li>
+<li><a href="http://en.wikipedia.org/wiki/Avidemux">Wikipedia: Avidemux</a>
+
+</li>
+<li><a href="http://wiki.ubuntuusers.de/Avidemux">ubuntuusers.de Wiki:
+Avidemux</a> (German)
+
+</li>
+</ul>
+<h3>License, Copyright</h3>
+<p>
+See COPYING and NOTICE file in the root directory of this module.
+</p>
+
+    </div>
+
+
+   </div>
+
+<!-- if childs -->
+
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <!-- if requires -->
+
+    <!-- if realizes -->
+
+    <div id="section">
+
+<!-- if facts -->
+
+<!-- if plugins -->
+
+<!-- if nodes -->
+
+<!-- if class -->
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Class <a href="avidemux/avidemux.html" class="link">avidemux::avidemux</a><br />
+Class <a href="avidemux/package.html" class="link">avidemux::package</a><br />
+Class <a href="avidemux/params.html" class="link">avidemux::params</a><br />
+Class <a href="avidemux/repo.html" class="link">avidemux::repo</a><br />
+
+    </div>
+
+
+
+
+
+
+
+    <!-- if method_list -->
+
+
+    <!-- if resource_list -->
+
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

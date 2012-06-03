@@ -117,7 +117,8 @@
        Puppet is able to run:
          $ su -
          $ mkdir /etc/puppet/modules
-         $ touch site.pp
+         $ touch /etc/puppet/site.pp
+         $ cd /etc/puppet/modules
          $ puppet module install puppetlabs-stdlib
        I copied the module into the modulepath [1] and tested it with the
        following commands:
