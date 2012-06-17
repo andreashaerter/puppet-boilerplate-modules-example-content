@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: gimp::plugin::lqr</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">gimp::plugin::lqr</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/home/user/gimp/manifests/plugin/lqr_pp.html">
+                /home/user/gimp/manifests/plugin/lqr.pp
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="../params.html">
+                gimp::params
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h2>Class: <a href="lqr.html">gimp::plugin::lqr</a></h2>
+<p>
+This class is able to install or remove the <a
+href="http://liquidrescale.wikidot.com">GIMP Liquid Rescale Plug-In</a> on
+a node.
+</p>
+<h3>Parameters</h3>
+<dl>
+<dt><b>ensure</b></dt><dd>String. Controls if the managed resources shall be <tt>present</tt> or
+<tt>absent</tt>. If set to <tt>absent</tt>:
+
+<ul>
+<li>The managed software packages are being uninstalled.
+
+</li>
+<li>Any traces of the packages will be purged as good as possible. This may
+include existing configuration files. The exact behavior is provider
+dependent. Q.v.:
+
+<ul>
+<li>Puppet type reference: <a href="http://j.mp/xbxmNP">package,
+"purgeable"</a>
+
+</li>
+<li><a href="http://j.mp/wtVCaL">Puppet's package provider source code</a>
+
+</li>
+</ul>
+</li>
+<li>System modifications (if any) will be reverted as good as possible (e.g.
+removal of created users, services, changed log settings, &#8230;).
+
+</li>
+<li>This is thus destructive and should be used with care.
+
+</li>
+</ul>
+<p>
+Defaults to <tt>present</tt>.
+</p>
+</dd>
+<dt><b>autoupgrade</b></dt><dd>Boolean. If set to <tt>true</tt>, any managed <a
+href="lqr/package.html">package</a> gets upgraded on each Puppet run when
+the <a href="lqr/package.html">package</a> provider is able to find a newer
+version than the present one. The exact behavior is provider dependent.
+Q.v.:
+
+<ul>
+<li>Puppet type reference: <a href="http://j.mp/xbxmNP">package,
+"upgradeable"</a>
+
+</li>
+<li><a href="http://j.mp/wtVCaL">Puppet's package provider source code</a>
+
+</li>
+</ul>
+<p>
+Defaults to <tt>false</tt>.
+</p>
+</dd>
+</dl>
+<p>
+The default values for the parameters are set in <a
+href="../params.html">gimp::params</a>. Have a look at the corresponding
+<tt>params.pp</tt> manifest file if you need more technical information
+about them.
+</p>
+<h3>Examples</h3>
+<ul>
+<li>Installation:
+
+<pre>
+  class { 'gimp::plugin::lqr': }
+</pre>
+</li>
+<li>Removal/decommissioning:
+
+<pre>
+  class { 'gimp::plugin::lqr':
+    ensure =&gt; 'absent',
+  }
+</pre>
+</li>
+</ul>
+<h3>Authors</h3>
+<ul>
+<li>Andreas Haerter &lt;<a
+href="mailto:ah@bitkollektiv.org">ah@bitkollektiv.org</a>&gt;
+
+</li>
+</ul>
+
+    </div>
+
+
+   </div>
+
+<!-- if childs -->
+
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <!-- if requires -->
+
+    <!-- if realizes -->
+
+    <div id="section">
+
+<!-- if facts -->
+
+<!-- if plugins -->
+
+<!-- if nodes -->
+
+<!-- if class -->
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Class <a href="lqr/package.html" class="link">gimp::plugin::lqr::package</a><br />
+
+    </div>
+
+
+
+
+
+
+
+    <!-- if method_list -->
+
+
+    <!-- if resource_list -->
+
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

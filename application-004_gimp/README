@@ -1,0 +1,122 @@
+  I. About
+  
+    This file contains a protocol about how the example module (-> "gimp"
+    directory) and the corresponding documentation (-> "doc" directory) were
+    created. Therefore, this text may be useful to learn how to use the
+    puppet-boilerplate-modules [1] project.
+
+    [1] <https://github.com/bitkollektiv/puppet-boilerplate-modules>
+
+
+
+  II. Creation transcript
+
+    1. Cloned the puppet-boilerplate-modules repository:
+       $ git clone git://github.com/bitkollektiv/puppet-boilerplate-modules.git
+
+
+    2. Called the wizard to create the module skeleton for a new module:
+       $ ./puppet-boilerplate-modules/newmodule.sh
+
+
+    3. Answered the questions:
+
+       a) Boilerplate to use:
+            application-004 (corresponding number should be "3").
+            GIMP packages can be found in nearly every Linux repository and
+            the software normally does not need further configuration. However,
+            GIMP supports plug-ins and it is nice to handle them separately.
+            This is why the "application-004" boilerplate was chosen. It is
+            simple and suit the needs for Puppet modules which mostly manage
+            basic package install or removal operations plus provides a goof
+            entry point for Plugin-Ins. I want to manage the additional LQR [1]
+            and Resynthesizer [2] plug-in here.
+
+            [1] <http://liquidrescale.wikidot.com>
+            [2] <http://logarithmic.net/pfh/resynthesizer>
+
+       b) Name for the new module:
+            gimp
+
+       c) Target directory:
+            Just pressed ENTER to select the home directory.
+
+       d) Full Name:
+            Andreas Haerter
+
+       e) Email address:
+            ah@bitkollektiv.org
+
+       f) The new module wizard now created the module. It also gave me a hint:
+           "Start to edit the following files (-> positions marked with
+            'FIXME/TODO') for customization:
+             - /home/user/gimp/manifests/init.pp
+             - /home/user/gimp/manifests/params.pp
+             - /home/user/gimp/manifests/plugin/foobar.pp
+             - /home/user/gimp/manifests/plugin/foobar/package.pp
+             - /home/user/gimp/README"
+          It says so because all available boilerplates mark the lines you must
+          edit/check in every case after you generated a module with FIXME/TODO.
+          The wizard scans for these lines and informs you about the files you
+          may want to start editing.
+
+       g) Start repository wizard?
+           No. I exited the program. This is only useful if I would want to
+           create a new Git repository on GitHub or Bitbucket for the module.
+
+
+    4. The new GIMP module was now located in "~/gimp". I started to edit the
+       created files to get a working module. Most work was already done by the
+       "new module wizard" (newmodule.sh). I just followed the wizard's advice
+       where to start:
+       - "~/gimp/manifests/init.pp":
+         Removed the FIXME/TODO line in the docblock at the top of the file [1].
+       - "~/gimp/README":
+         Added some general notes and links.
+       - "~/gimp/manifests/plugin/foobar.pp" and "plugin/foobar/package.pp":
+         Replaced "foobar" with "lqr". Everything you need to know is
+         explained in a comment [2] at the top of the file. I copied the files
+         and did the same for "resynthesizer" then.
+       - "~/gimp/manifests/params.pp":
+         I replaced the main FIXME/TODO with the package names [3] and edited /
+         added the default parameter declaration for the plugin classes [4].
+       That's all, the module is finished. Really simple and small edits. It
+       took ~twenty minutes to create the whole, well documented module. 90% of
+       the time was spent to write the module's README. Optional but
+       recommended: I ran lint.sh [5] (a wrapper around puppet-lint [6]) to make
+       sure everything follows the official Puppet Labs style guide [7].
+
+       [1] <http://j.mp/KExTlG>
+       [2] <http://j.mp/Ly2dJG>
+       [3] <http://j.mp/LuLE2I>
+       [4] <http://j.mp/KT59PL>
+       [5] <https://github.com/bitkollektiv/puppet-tools/blob/master/lint.sh>
+       [6] <https://github.com/rodjek/puppet-lint>
+       [7] <http://docs.puppetlabs.com/guides/style_guide.html>
+
+
+    5. Rendered the HTML documentation with the following command:
+         $ puppet doc --mode rdoc --modulepath ~ --outputdir ~/doc
+       Have a look in the "doc" directory to view its output. Just open the
+       "index.html" with your browser.
+
+
+    6. Time for a test. I created everything in a fresh VM, so I first made sure
+       Puppet is able to run:
+         $ su -
+         $ mkdir /etc/puppet/modules
+         $ touch /etc/puppet/site.pp
+         $ cd /etc/puppet/modules
+         $ puppet module install puppetlabs-stdlib
+       I copied the module into the modulepath [1] and tested it with the
+       following commands:
+         $ su -
+         $ mkdir /etc/puppet/modules/gimp
+         $ cp -R -v /home/user/gimp/. /etc/puppet/modules/gimp/.
+         $ puppet apply -e "class { 'gimp': } class { 'gimp::plugin::resynthesizer': } class { 'gimp::plugin::lqr': }"
+         $ puppet apply -e "class { 'gimp': ensure => 'absent'} class { 'gimp::plugin::resynthesizer': ensure => 'absent' } class { 'gimp::plugin::lqr': ensure => 'absent' }"
+       GIMP and the plugins were installed and removed as expected. :-)
+
+       [1] <http://j.mp/JLMlb0>
+
+
