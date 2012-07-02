@@ -103,9 +103,39 @@ Manages GIMP (GNU Image Manipulation Program), an advanced, free Open
 Source raster graphics editor.
 </p>
 <p>
-Have a look at the main module class (<tt>init.pp</tt>) to see what this
-module does on a node plus usage examples.
+Please note that the handling of important components is split into
+different module parts/classes. For instance:
 </p>
+<ul>
+<li>GIMP main application: <tt><a href="gimp.html">gimp</a></tt>
+(<tt>init.pp</tt>)
+
+</li>
+<li>GIMP Plug-Ins: <tt><a href="gimp/plugin.html">gimp::plugin</a></tt> (<tt><a
+href="gimp/plugin.html">plugin</a></tt> directory)
+
+</li>
+</ul>
+<p>
+Have a look at their documentation for usage examples. However, some
+starting points:
+</p>
+<ul>
+<li>Install the main application and the <a
+href="http://logarithmic.net/pfh/resynthesizer">Resynthesizer Plug-In</a>:
+
+<pre>
+  class { 'gimp': }
+  class { 'gimp::plugin::resynthesizer': }
+</pre>
+</li>
+<li>Remove GIMP:
+
+<pre>
+  class { 'gimp': ensure =&gt; 'absent' }
+</pre>
+</li>
+</ul>
 <h3>Compatibility</h3>
 <p>
 This module is designed to work with Puppet version 2.7.x or newer.
@@ -149,7 +179,7 @@ available functions.
 </li>
 </ul>
 <p>
-Tutorials:
+Tutorial sources:
 </p>
 <ul>
 <li><a href="http://www.gimpusers.com/">Gimpusers.com - News and tutorials</a>
