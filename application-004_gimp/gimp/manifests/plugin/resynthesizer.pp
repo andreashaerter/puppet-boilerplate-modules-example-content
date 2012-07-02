@@ -94,4 +94,3 @@ class gimp::plugin::resynthesizer(
   }
 
 }
-

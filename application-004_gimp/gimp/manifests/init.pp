@@ -71,4 +71,3 @@ class gimp(
   class { 'gimp::package': }
 
 }
-

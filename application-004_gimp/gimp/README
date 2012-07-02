@@ -3,8 +3,19 @@
 Manages GIMP (GNU Image Manipulation Program), an advanced, free Open Source
 raster graphics editor.
 
-Have a look at the main module class (<tt>init.pp</tt>) to see what this
-module does on a node plus usage examples.
+Please note that the handling of important components is split into different
+module parts/classes. For instance:
+* GIMP main application: <tt>gimp</tt> (<tt>init.pp</tt>)
+* GIMP Plug-Ins: <tt>gimp::plugin</tt> (<tt>plugin</tt> directory)
+Have a look at their documentation for usage examples. However, some starting
+points:
+* Install the main application and the
+  {Resynthesizer Plug-In}[http://logarithmic.net/pfh/resynthesizer]:
+    class { 'gimp': }
+    class { 'gimp::plugin::resynthesizer': }
+* Remove GIMP:
+    class { 'gimp': ensure => 'absent' }
+
 
 
 === Compatibility
@@ -32,7 +43,7 @@ This module has got the following module dependencies:
 * {Official GIMP Documentation}[http://manual.gimp.org/] (different languages)
 * {ubuntuusers.de Wiki: GIMP}[http://wiki.ubuntuusers.de/GIMP] (German)
 
-Tutorials:
+Tutorial sources:
 * {Gimpusers.com - News and tutorials}[http://www.gimpusers.com/]
 * {Gimpusers.de - News and tutorials}[http://www.gimpusers.de/] (German)
 * {GIMP User Group - Community}[http://gug.criticalhit.dk/] There are also

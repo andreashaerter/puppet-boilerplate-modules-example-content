@@ -49,8 +49,8 @@
 # * Andreas Haerter <mailto:ah@bitkollektiv.org>
 #
 class avidemux(
-  $ensure         = $avidemux::params::ensure,
-  $autoupgrade    = $avidemux::params::autoupgrade
+  $ensure      = $avidemux::params::ensure,
+  $autoupgrade = $avidemux::params::autoupgrade
 ) inherits avidemux::params {
 
   #### Validate parameters
@@ -86,4 +86,3 @@ class avidemux(
   }
 
 }
-

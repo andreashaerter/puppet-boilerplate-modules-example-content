@@ -1,6 +1,6 @@
 # == Class: filezilla
 #
-# This class is able to install or remove filezilla on a node.
+# This class is able to install or remove FileZilla (client) on a node.
 #
 #
 # === Parameters
@@ -161,4 +161,3 @@ class filezilla(
   }
 
 }
-

@@ -1,6 +1,6 @@
 # == Class: filezilla
 #
-# This class is able to install or remove FileZilla on a node.
+# This class is able to install or remove FileZilla (client) on a node.
 #
 #
 # === Parameters
@@ -49,8 +49,8 @@
 # * Andreas Haerter <mailto:ah@bitkollektiv.org>
 #
 class filezilla(
-  $ensure         = $filezilla::params::ensure,
-  $autoupgrade    = $filezilla::params::autoupgrade
+  $ensure      = $filezilla::params::ensure,
+  $autoupgrade = $filezilla::params::autoupgrade
 ) inherits filezilla::params {
 
   #### Validate parameters
@@ -71,4 +71,3 @@ class filezilla(
   class { 'filezilla::package': }
 
 }
-

@@ -93,4 +93,3 @@ class gimp::plugin::lqr(
   }
 
 }
-

@@ -32,7 +32,15 @@ class avidemux::repo {
       # ATTENTION: No removal when "ensure => absent" because RPM Fusion may
       #            still be needed by other modules or programs.
       if $avidemux::ensure == 'present' {
-        libyum::repo::rpmfusion { 'avidemux': }
+        # install
+        if !defined(Class['libyum::repo::rpmfusion']) {
+          class { 'libyum::repo::rpmfusion': }
+        # inform if there are conflicts
+        } elsif $libyum::repo::rpmfusion::ensure != 'present' {
+          fail("RPM Fusion is required for \"${module_name}\" but ensured absent.")
+        }
+        # manage relationships
+        Class['libyum::repo::rpmfusion'] -> Class['avidemux::repo']
       }
     }
 
