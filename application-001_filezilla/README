@@ -6,14 +6,14 @@
     created. Therefore, this text may be useful to learn how to use the
     puppet-boilerplate-modules [1] project.
 
-    [1] <https://github.com/bitkollektiv/puppet-boilerplate-modules>
+    [1] <https://github.com/syn-systems/puppet-boilerplate-modules>
 
 
 
   II. Creation transcript
 
     1. Cloned the puppet-boilerplate-modules repository:
-       $ git clone git://github.com/bitkollektiv/puppet-boilerplate-modules.git
+       $ git clone git://github.com/syn-systems/puppet-boilerplate-modules.git
 
 
     2. Called the wizard to create the module skeleton for a new module:
@@ -37,10 +37,10 @@
             Just pressed ENTER to select the home directory.
 
        d) Full Name:
-            Andreas Haerter
+            SYN Systems
 
        e) Email address:
-            ah@bitkollektiv.org
+            puppet@dev.syn-systems.com
 
        f) The new module wizard now created the module. It also gave me a hint:
            "Start to edit the following files (-> positions marked with
@@ -76,7 +76,7 @@
 
        [1] <http://j.mp/LU1e8Q>
        [2] <http://j.mp/M8jmPj>
-       [3] <https://github.com/bitkollektiv/puppet-tools/blob/master/lint.sh>
+       [3] <https://github.com/syn-systems/puppet-tools/blob/master/lint.sh>
        [4] <https://github.com/rodjek/puppet-lint>
        [5] <http://docs.puppetlabs.com/guides/style_guide.html>
 

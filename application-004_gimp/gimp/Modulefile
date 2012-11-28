@@ -1,6 +1,6 @@
 name 'username-gimp'
 version '0.1.0'
-author 'Andreas Haerter'
+author 'SYN Systems'
 license 'UNKNOWN'
 summary 'Manages GIMP (GNU Image Manipulation Program).'
 description 'UNKNOWN'

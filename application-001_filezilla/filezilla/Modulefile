@@ -1,6 +1,6 @@
 name 'username-filezilla'
 version '0.1.0'
-author 'Andreas Haerter'
+author 'SYN Systems'
 license 'UNKNOWN'
 summary 'Manages filezilla.'
 description 'UNKNOWN'

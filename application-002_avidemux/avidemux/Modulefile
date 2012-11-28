@@ -1,13 +1,13 @@
 name 'username-avidemux'
 version '0.1.0'
-author 'Andreas Haerter'
+author 'SYN Systems'
 license 'UNKNOWN'
 summary 'Manages avidemux.'
 description 'UNKNOWN'
 source 'UNKNOWN'
 project_page 'UNKNOWN'
 dependency 'puppetlabs-stdlib', '>= 2.3.1'
-dependency 'bitkollektiv-libyum'
+dependency 'synsystems-libyum'
 
 
 # Available meta data fields/methods (q.v. <http://j.mp/I92C94>):

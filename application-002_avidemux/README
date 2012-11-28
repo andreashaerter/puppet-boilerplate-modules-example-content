@@ -13,14 +13,14 @@
     legally used in your country and for your intended purpose. This is not
     legal advice. Ask your lawyer if you need professional help.
 
-    [1] <https://github.com/bitkollektiv/puppet-boilerplate-modules>
+    [1] <https://github.com/syn-systems/puppet-boilerplate-modules>
 
 
 
   II. Creation transcript
 
     1. Cloned the puppet-boilerplate-modules repository:
-       $ git clone git://github.com/bitkollektiv/puppet-boilerplate-modules.git
+       $ git clone git://github.com/syn-systems/puppet-boilerplate-modules.git
 
 
     2. Called the wizard to create the module skeleton for a new module:
@@ -44,10 +44,10 @@
             Just pressed ENTER to select the home directory.
 
        d) Full Name:
-            Andreas Haerter
+            SYN Systems
 
        e) Email address:
-            ah@bitkollektiv.org
+            puppet@dev.syn-systems.com
 
        f) The new module wizard now created the module. It also gave me a hint:
            "Start to edit the following files (-> positions marked with
@@ -103,7 +103,7 @@
        [4] <http://j.mp/Na1EtX>
        [5] <http://j.mp/LdeJMM>
        [6] <http://j.mp/JMc8yI>
-       [7] <https://github.com/bitkollektiv/puppet-tools/blob/master/lint.sh>
+       [7] <https://github.com/syn-systems/puppet-tools/blob/master/lint.sh>
        [8] <https://github.com/rodjek/puppet-lint>
        [9] <http://docs.puppetlabs.com/guides/style_guide.html>
 
@@ -121,9 +121,9 @@
          $ touch /etc/puppet/site.pp
          $ cd /etc/puppet/modules
          $ puppet module install puppetlabs-stdlib
-         $ puppet module install bitkollektiv-libyum
+         $ puppet module install synsystems-libyum
              or alternatively
-           git clone git://github.com/bitkollektiv/puppet-module-libyum.git libyum
+           git clone git://github.com/syn-systems/puppet-module-libyum.git libyum
        I copied the module into the modulepath [1] and tested it with the
        following commands:
          $ su -

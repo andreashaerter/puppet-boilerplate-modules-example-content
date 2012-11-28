@@ -42,7 +42,7 @@ This module has got the following module dependencies:
 [*libyum*]
   A recent version (the newer, the better). Library of YUM related resources.
   More information:
-  * {libyum at Puppet Forge}[http://forge.puppetlabs.com/bitkollektiv/libyum]
+  * {libyum at Puppet Forge}[http://forge.puppetlabs.com/syn-systems/libyum]
   * The {module source code}[http://j.mp/L3yZ7c]
 
 

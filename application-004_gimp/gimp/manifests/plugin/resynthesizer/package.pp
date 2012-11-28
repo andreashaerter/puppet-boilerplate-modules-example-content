@@ -20,7 +20,7 @@
 #
 # === Authors
 #
-# * Andreas Haerter <mailto:ah@bitkollektiv.org>
+# * SYN Systems <mailto:puppet@dev.syn-systems.com>
 #
 class gimp::plugin::resynthesizer::package {
 
