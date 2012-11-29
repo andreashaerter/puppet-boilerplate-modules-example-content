@@ -95,13 +95,13 @@
        I ran lint.sh [8] (a wrapper around puppet-lint [9]) to make sure
        everything follows the official Puppet Labs style guide [10].
 
-       [1]  <http://j.mp/LJj7rD>
-       [2]  <http://j.mp/KX1SOJ>
-       [3]  <http://j.mp/JAtSgh>
-       [4]  <http://j.mp/Kd99R9>
-       [5]  <http://j.mp/JAua6M>
-       [6]  <http://j.mp/KIyej7>
-       [7]  <http://j.mp/JVKkm7>
+       [1]  <http://j.mp/UtQrqW>
+       [2]  <http://j.mp/UdCP0G>
+       [3]  <http://j.mp/Vg2zhw>
+       [4]  <http://j.mp/SvCYMZ>
+       [5]  <http://j.mp/Y9lSLf>
+       [6]  <http://j.mp/UtQSl1>
+       [7]  <http://j.mp/11ihmb3>
        [8]  <https://github.com/syn-systems/puppet-tools/blob/master/lint.sh>
        [9]  <https://github.com/rodjek/puppet-lint>
        [10] <http://docs.puppetlabs.com/guides/style_guide.html>

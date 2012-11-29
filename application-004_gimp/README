@@ -86,10 +86,10 @@
        recommended: I ran lint.sh [5] (a wrapper around puppet-lint [6]) to make
        sure everything follows the official Puppet Labs style guide [7].
 
-       [1] <http://j.mp/KExTlG>
-       [2] <http://j.mp/Ly2dJG>
-       [3] <http://j.mp/LuLE2I>
-       [4] <http://j.mp/KT59PL>
+       [1] <http://j.mp/QOxmk5>
+       [2] <http://j.mp/QOxoZu>
+       [3] <http://j.mp/V7UG80>
+       [4] <http://j.mp/V7UK7U>
        [5] <https://github.com/syn-systems/puppet-tools/blob/master/lint.sh>
        [6] <https://github.com/rodjek/puppet-lint>
        [7] <http://docs.puppetlabs.com/guides/style_guide.html>

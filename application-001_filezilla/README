@@ -74,8 +74,8 @@
        I ran lint.sh [3] (a wrapper around puppet-lint [4]) to make sure
        everything follows the official Puppet Labs style guide [5].
 
-       [1] <http://j.mp/LU1e8Q>
-       [2] <http://j.mp/M8jmPj>
+       [1] <http://j.mp/TvC7xt>
+       [2] <http://j.mp/RkIbug>
        [3] <https://github.com/syn-systems/puppet-tools/blob/master/lint.sh>
        [4] <https://github.com/rodjek/puppet-lint>
        [5] <http://docs.puppetlabs.com/guides/style_guide.html>

@@ -97,12 +97,12 @@
        I ran lint.sh [7] (a wrapper around puppet-lint [8]) to make sure
        everything follows the official Puppet Labs style guide [9].
 
-       [1] <http://j.mp/Mocy01>
-       [2] <http://j.mp/JF8fGY>
-       [3] <http://j.mp/M16c0f>
-       [4] <http://j.mp/Na1EtX>
-       [5] <http://j.mp/LdeJMM>
-       [6] <http://j.mp/JMc8yI>
+       [1] <http://j.mp/WwFvpX>
+       [2] <http://j.mp/Ss32dr>
+       [3] <http://j.mp/YtyMmj>
+       [4] <http://j.mp/QOvzvw>
+       [5] <http://j.mp/WwFLFx>
+       [6] <http://j.mp/UtQcfw>
        [7] <https://github.com/syn-systems/puppet-tools/blob/master/lint.sh>
        [8] <https://github.com/rodjek/puppet-lint>
        [9] <http://docs.puppetlabs.com/guides/style_guide.html>
